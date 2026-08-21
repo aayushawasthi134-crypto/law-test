@@ -64,63 +64,18 @@ textarea {
 .container {
     width: min(92%, var(--container));
     margin: auto;
+    overflow: hidden;
 }
 
-
-.section {
-    padding: 110px 0;
-}
-
-
-/* =========================================================
-   HEADER
-========================================================= */
-
-.header {
-    position: fixed;
+.image-placeholder img {
+.image-placeholder img {
+    height: 100%;
     width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-
-    background: rgba(12, 27, 42, 0.96);
-
-    transition: var(--transition);
-}
-
-
-.header.scrolled {
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
-}
-
-
-.nav-container {
-    min-height: 82px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-
-    color: white;
-}
-
-
-.logo-icon {
-    width: 44px;
-    height: 44px;
-
-    border: 1px solid var(--gold);
-
-    display: grid;
-    place-items: center;
-
+    height: 100%;
+    min-height: 470px;
+    display: block;
+    object-fit: cover;
+    object-position: center;
     color: var(--gold);
 
     font-size: 20px;
