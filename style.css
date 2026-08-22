@@ -112,7 +112,7 @@ textarea {
 .nav-link {
     position: relative;
 
-    color: rgba(255,255,255,0.82);
+    color: var(--navy);
 
     font-size: 14px;
     font-weight: 500;
