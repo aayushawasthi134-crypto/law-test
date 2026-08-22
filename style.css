@@ -6,7 +6,7 @@
 
     --navy: #0c1b2a;
     --navy-light: #13283c;
-    --gold: #b89a62;
+    --gold: hsl(39, 38%, 55%);
     --gold-light: #d4bb89;
 
     --white: #ffffff;
@@ -84,21 +84,23 @@ textarea {
 .logo-text {
     display: flex;
     flex-direction: column;
-    line-height: 1.15;
+    line-height: 1.05;
 }
 
 
 .logo-text span {
-    font-size: 9px;
-    letter-spacing: 3px;
-    color: var(--gold-light);
+    display: none;
 }
 
 
 .logo-text strong {
-    font-family: var(--heading-font);
-    font-size: 16px;
+    font-family: "Playfair Display", serif;
+    font-size: 20px;
+    font-weight: 600;
     letter-spacing: 0.5px;
+    color: #0c1b2a;
+    text-transform: uppercase;
+    max-width: 180px;
 }
 
 
@@ -1910,9 +1912,21 @@ textarea {
     }
 
 
-    .logo-text strong {
+   .logo-text strong {
+        font-size: 17px;
+        line-height: 1.05;
+        letter-spacing: 0.3px;
+    }
 
-        font-size: 13px;
+
+     .logo-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 17px;
+    }
+
+    .logo {
+        gap: 8px;
     }
 
 
@@ -2036,4 +2050,5 @@ textarea {
         bottom: 85px;
     }
 
+    
 }
