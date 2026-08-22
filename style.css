@@ -1169,6 +1169,22 @@ textarea {
 }
 
 
+.gallery-placeholder img {
+
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    object-position: center;
+}
+
+
+.gallery-placeholder:has(img) i {
+
+    display: none;
+}
+
+
 .gallery-placeholder i {
 
     color: var(--gold);
