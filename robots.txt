@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://law-test.aayushawasthi134.workers.dev/sitemap.xml
