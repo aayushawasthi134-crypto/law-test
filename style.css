@@ -48,6 +48,15 @@ body {
 }
 
 
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--white);
+    box-shadow: 0 2px 14px rgba(12, 27, 42, 0.08);
+}
+
+
 a {
     text-decoration: none;
     color: inherit;
