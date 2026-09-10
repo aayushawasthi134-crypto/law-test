@@ -215,12 +215,59 @@ document.getElementById("year").textContent =
 
 
 /* =========================================================
-   SIMPLE SCROLL REVEAL
+   AOS-STYLE SCROLL REVEAL
 ========================================================= */
 
-const revealElements = document.querySelectorAll(
-    ".practice-card, .why-item, .contact-item, .gallery-item"
+const scrollRevealGroups = [
+    [
+        ".intro-grid > div",
+        ".about-image",
+        ".about-content",
+        ".why-content",
+        ".why-visual",
+        ".contact-info",
+        ".contact-form-wrapper"
+    ],
+    [
+        ".stats-grid .stat",
+        ".practice-card",
+        ".why-item",
+        ".contact-item",
+        ".gallery-item"
+    ],
+    [
+        ".section-heading",
+        ".contact-cta-content",
+        ".disclaimer .container",
+        ".footer-grid"
+    ]
+];
+
+
+const scrollRevealElements = document.querySelectorAll(
+    scrollRevealGroups.flat().join(", ")
 );
+
+
+scrollRevealElements.forEach((element, index) => {
+
+    const groupIndex = scrollRevealGroups.findIndex(group =>
+        group.some(selector => element.matches(selector))
+    );
+
+    const animationType = groupIndex === 0
+        ? (index % 2 === 0 ? "slide-in-left" : "slide-in-right")
+        : groupIndex === 1
+            ? "entrance"
+            : "fade-in";
+
+    element.classList.add("scroll-reveal", animationType);
+    element.style.setProperty(
+        "--reveal-delay",
+        `${Math.min(index % 4, 3) * 0.08}s`
+    );
+
+});
 
 
 const observer = new IntersectionObserver(
@@ -231,9 +278,7 @@ const observer = new IntersectionObserver(
 
             if (entry.isIntersecting) {
 
-                entry.target.classList.add("reveal");
-                entry.target.classList.add("show");
-
+                entry.target.classList.add("is-visible");
                 observer.unobserve(entry.target);
 
             }
@@ -243,14 +288,11 @@ const observer = new IntersectionObserver(
     },
 
     {
-        threshold: 0.15
+        threshold: 0.15,
+        rootMargin: "0px 0px -40px"
     }
 
 );
 
 
-revealElements.forEach(element => {
-
-    observer.observe(element);
-
-});
+scrollRevealElements.forEach(element => observer.observe(element));

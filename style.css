@@ -76,6 +76,15 @@ textarea {
     overflow: hidden;
 }
 
+
+.nav-container {
+    min-height: 88px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
 .image-placeholder img {
     height: 100%;
     width: 100%;
@@ -1728,21 +1737,113 @@ textarea {
    ANIMATION
 ========================================================= */
 
-.reveal {
+@keyframes fadeIn {
 
-    opacity: 0;
-
-    transform: translateY(30px);
-
-    transition: 0.7s ease;
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 
-.reveal.show {
+@keyframes slideInLeft {
 
+    from {
+        opacity: 0;
+        transform: translateX(-45px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes slideInRight {
+
+    from {
+        opacity: 0;
+        transform: translateX(45px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes entrance {
+
+    from {
+        opacity: 0;
+        transform: translateY(24px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+.hero-text {
+    animation: entrance 0.9s both;
+}
+
+
+.hero-card {
+    animation: slideInRight 0.9s 0.2s both;
+}
+
+
+.scroll-reveal {
+    opacity: 0;
+    transition: opacity 0.75s ease, transform 0.75s ease;
+    transition-delay: var(--reveal-delay, 0s);
+}
+
+
+.scroll-reveal.fade-in {
+    transform: none;
+}
+
+
+.scroll-reveal.slide-in-left {
+    transform: translateX(-35px);
+}
+
+
+.scroll-reveal.slide-in-right {
+    transform: translateX(35px);
+}
+
+
+.scroll-reveal.entrance {
+    transform: translateY(25px) scale(0.98);
+}
+
+
+.scroll-reveal.is-visible {
     opacity: 1;
+    transform: translate(0) scale(1);
+}
 
-    transform: translateY(0);
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .scroll-reveal {
+        opacity: 1;
+        transform: none;
+    }
 }
 
 
